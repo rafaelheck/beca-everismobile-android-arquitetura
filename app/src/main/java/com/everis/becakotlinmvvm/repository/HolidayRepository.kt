@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.everis.becakotlinmvvm.api.ApiInterface
 import com.everis.becakotlinmvvm.api.RetrofitClient
-import com.everis.becakotlinmvvm.model.HolidayModel
+import com.everis.becakotlinmvvm.domain.HolidayModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

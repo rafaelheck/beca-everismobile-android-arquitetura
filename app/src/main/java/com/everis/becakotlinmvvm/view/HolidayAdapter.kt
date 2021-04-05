@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.everis.becakotlinmvvm.BR
-import com.everis.becakotlinmvvm.model.HolidayModel
+import com.everis.becakotlinmvvm.domain.HolidayModel
 import com.everis.becakotlinmvvm.R
 import com.everis.becakotlinmvvm.databinding.ItemHolidayBinding
 
