@@ -3,21 +3,29 @@ package com.everis.becakotlinmvvm.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.everis.becakotlinmvvm.api.HolidayRestApiTask
+import com.everis.becakotlinmvvm.data.HolidayRepository
 import com.everis.becakotlinmvvm.domain.Holiday
-import com.everis.becakotlinmvvm.repository.HolidayRepository
+import com.everis.becakotlinmvvm.implementations.HolidayDataSourceImplementation
+import com.everis.becakotlinmvvm.usecase.HolidayListUseCase
 
 class HolidayViewModel: ViewModel() {
-    
-    var holidayRepository: HolidayRepository? = null
-    var mutableLiveData: MutableLiveData<List<Holiday>>? = null
+
+
+    private val holidayRestApiTask = HolidayRestApiTask()
+    private val holidayDataSource = HolidayDataSourceImplementation(holidayRestApiTask)
+    private val holidayRepository = HolidayRepository(holidayDataSource)
+    private val holidayListUseCase = HolidayListUseCase(holidayRepository)
+
+    private var mutableLiveData: MutableLiveData<List<Holiday>>? = null
 
     init {
-        holidayRepository = HolidayRepository()
+        getHolidays()
     }
 
     fun getHolidays(): LiveData<List<Holiday>> {
         if (mutableLiveData == null) {
-            mutableLiveData = holidayRepository!!.fetchHolidays()
+            mutableLiveData = holidayListUseCase.invoke()
         }
 
         return mutableLiveData!!
