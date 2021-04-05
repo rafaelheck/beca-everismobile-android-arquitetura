@@ -5,19 +5,19 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.everis.becakotlinmvvm.BR
-import com.everis.becakotlinmvvm.domain.HolidayModel
+import com.everis.becakotlinmvvm.domain.Holiday
 import com.everis.becakotlinmvvm.R
 import com.everis.becakotlinmvvm.databinding.ItemHolidayBinding
 
 class HolidayAdapter() : RecyclerView.Adapter<HolidayAdapter.ViewHolder>() {
 
-    var holidayList: List<HolidayModel>
+    var holidayList: List<Holiday>
 
     init {
         holidayList = ArrayList()
     }
 
-    fun addData(arrList: List<HolidayModel>){
+    fun addData(arrList: List<Holiday>){
         this.holidayList = arrList
     }
 
